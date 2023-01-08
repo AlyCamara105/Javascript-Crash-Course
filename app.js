@@ -16,3 +16,10 @@ if (cash > price) {
 }
 
 isStoreOpen && cash >= price ? console.log("give receipt") : console.log("do not give receipt")
+
+let count = 1;
+
+while (count <= 100) {
+    count += 1;
+    console.log(count);
+}
