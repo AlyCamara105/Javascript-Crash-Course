@@ -139,3 +139,30 @@ function onClicked() {
     document.querySelector(".title").style.color = "red";
 }
 
+function getVideo(status) {
+    return new Promise((resolve, reject) => {
+        if (status === "VIP") {
+            resolve("show video");
+        } else if (status === "FREE") {
+            resolve("show trailer");
+        } else {
+            reject("no video");
+        }
+    });
+}
+
+async function returnVideoStatus (promise) {
+    try {
+        console.log(await promise);
+    } catch(rejection) {
+        console.log(rejection);
+    }
+}
+
+function loadSubscriptionStatus() {
+    returnVideoStatus(getVideo("VIP"));
+    returnVideoStatus(getVideo("FREE"));
+    returnVideoStatus(getVideo("gibberish"));
+}
+
+loadSubscriptionStatus();
